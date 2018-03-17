@@ -22,4 +22,33 @@ There are a few things to do if you want to publish this repository as an offici
 ## Code of Conduct
 Root’s developers and our community are expected to abide by the [Contributor Covenant Code of Conduct](https://github.com/root-community/root-insurance-go/tree/master/CODE_OF_CONDUCT.md). Play nice.
 
+## Install
+```
+pip install rootsdk
+```
+or
+```
+git clone git@github.com:root-community/root-insurance-python.git
+pip install -e root-insurance-python
+```
 
+## Environment Variables
+```
+ROOT_APP_ID
+ROOT_APP_SECRET
+```
+
+## Code
+
+```python
+from root import insurance
+
+client = insurance.Client()
+phone_brands = client.gadgets.list_phone_brands()
+
+```
+
+# Upload to pip
+```
+python setup.py bdist_wheel upload -r pypi
+```
