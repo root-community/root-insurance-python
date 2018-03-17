@@ -1,0 +1,4 @@
+*.pyc
+dist
+rootsdk.egg-info/
+build/
