@@ -1,6 +1,7 @@
 import requests
 import logging
 import os
+from .exceptions import RootCredentialsException 
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -18,6 +19,8 @@ class Client:
         self.policies = Policies(self)
         self.gadgets = Gadgets(self)
         self.quotes = Quotes(self)
+        if not self.appID and not self.appSecret:
+            raise RootCredentialsException
         print("[WARNING] Running in production mode: {mode}".format(mode=self.production))
 
     def call(self, method, path, params=None, **kwargs):

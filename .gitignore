@@ -2,3 +2,6 @@
 dist
 rootsdk.egg-info/
 build/
+.pytest_cache/
+venv/
+virtualenv/
