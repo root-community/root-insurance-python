@@ -1,23 +1,36 @@
 import requests
 import logging
 import os
+from .exceptions import RootCredentialsException 
 
 logging.basicConfig(level=logging.DEBUG)
 
 class Client:
     def __init__(self):
-        self.baseURL = "https://sandbox.root.co.za/v1/insurance"
-        self.appID = os.environ.get('ROOT_APP_ID')
-        self.appSecret = os.environ.get('ROOT_APP_SECRET')
+        self.sandBox = os.environ.get('ROOT_SANDBOX', True)
+        self.production = False if self.sandBox else True
+        self.prodUrl = "https://api.root.co.za/v1/insurance"
+        self.baseURL = "https://sandbox.root.co.za/v1/insurance" if self.sandBox else self.prodUrl
+        self.appSecret = os.environ.get('ROOT_APP_SECRET') if not self.sandBox else ""
+        self.appID = os.environ.get('ROOT_APP_ID') if not self.sandBox else os.environ.get('ROOT_APP_SECRET')
         self.applications = Applications(self)
         self.claims = Claims(self)
         self.policyholders = PolicyHolders(self)
         self.policies = Policies(self)
         self.gadgets = Gadgets(self)
         self.quotes = Quotes(self)
+        if not self.appID and not self.appSecret:
+            raise RootCredentialsException
+        print("[WARNING] Running in production mode: {mode}".format(mode=self.production))
 
     def call(self, method, path, params=None, **kwargs):
-        resp = requests.request(method, f'{self.baseURL}/{path}', params=params, headers={"Content-Type": "application/json"}, auth=(self.appID, self.appSecret), **kwargs)
+        resp = requests.request(method, 
+                                f'{self.baseURL}/{path}', 
+                                params=params, 
+                                headers={"Content-Type": "application/json"}, 
+                                auth=(self.appID, self.appSecret), 
+                                **kwargs
+                                )
         if resp.status_code == 200 or resp.status_code == 201:
             return resp.json()
         raise Exception(resp.status_code, resp.json())
