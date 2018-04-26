@@ -1,11 +1,12 @@
 from pprint import pprint
 from root.insurance import InsuranceClient
 from root.policyholder import Policyholder, Beneficiary
+from root.resources import GadgetCover
 
 
 def main():
     # 0. Create an insurance client
-    client = InsuranceClient()
+    client = InsuranceClient(cover=GadgetCover)
     phone = "iPhone 6 Plus 128GB LTE"
     phone_value = client.quotes.get_phone_value(phone)
     print("The value of a {} is R{}".format(phone, phone_value))

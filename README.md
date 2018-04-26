@@ -41,9 +41,10 @@ ROOT_APP_SECRET
 ## Code
 
 ```python
-from root import insurance
+from root.insurance import InsuranceClient
+from root.resources import GadgetCover
 
-client = insurance.InsuranceClient()
+client = InsuranceClient(cover=GadgetCover)
 phone_brands = client.gadgets.list_phone_brands()
 
 ```
