@@ -43,7 +43,7 @@ ROOT_APP_SECRET
 ```python
 from root import insurance
 
-client = insurance.Client()
+client = insurance.InsuranceClient()
 phone_brands = client.gadgets.list_phone_brands()
 
 ```
