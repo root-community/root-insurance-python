@@ -35,12 +35,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1.3',  # Required
+    version='0.2.0',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A python SDK for the Root insurance API',  # Required
+    description='A python SDK for the Root Insurance API',  # Required
 
     # This should be a valid link to your project's main homepage.
     #
@@ -50,7 +50,7 @@ setup(
 
     # This should be your name or the name of the organization which owns the
     # project.
-    author='Brendan Ball',  # Optional
+    author='Root Community, Brendan Ball, Christopher Currin',  # Optional
 
     # Classifiers help users find your project by categorizing it.
     #
