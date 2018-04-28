@@ -1,13 +1,11 @@
 import unittest
-
-from root.resources import GadgetCover
-from tests.context import insurance
-
+import context
+from root.insurance import InsuranceClient, GadgetCover
 
 class GadgetCoverTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.client = insurance.InsuranceClient(cover=GadgetCover)
+        self.client = InsuranceClient(cover=GadgetCover)
 
     def test_list_models(self):
         result = self.client.quotes.list_models()

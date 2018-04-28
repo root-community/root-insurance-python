@@ -1,7 +1,5 @@
 from pprint import pprint
-from root.insurance import InsuranceClient
-from root.policyholder import Policyholder, Beneficiary
-from root.resources import GadgetCover
+from root.insurance import InsuranceClient, GadgetCover, Policyholder, Beneficiary
 
 
 def main():

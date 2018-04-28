@@ -1,4 +1,4 @@
-from root.exceptions import RootIdentificationException
+from root.insurance.exceptions import RootIdentificationException
 
 
 class Policyholder(object):

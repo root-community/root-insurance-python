@@ -26,7 +26,7 @@ Root’s developers and our community are expected to abide by the [Contributor 
 ```
 pip install rootsdk
 ```
-or
+or for active development
 ```
 git clone git@github.com:root-community/root-insurance-python.git
 pip install -e root-insurance-python
@@ -34,15 +34,13 @@ pip install -e root-insurance-python
 
 ## Environment Variables
 ```
-ROOT_APP_ID
-ROOT_APP_SECRET
+ROOT_API_KEY
 ```
 
 ## Code
 
 ```python
-from root.insurance import InsuranceClient
-from root.resources import GadgetCover
+from root.insurance import InsuranceClient,GadgetCover
 
 client = InsuranceClient(cover=GadgetCover)
 phone_brands = client.gadgets.list_phone_brands()

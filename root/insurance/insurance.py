@@ -1,9 +1,9 @@
 import requests
 import logging
 import os
-from root.exceptions import RootCredentialsException
-from root.policyholder import Policyholder
-from root.resources import GadgetCover, Applications, Claims, PolicyHolders, Policies
+from root.insurance.exceptions import RootCredentialsException
+from root.insurance.policyholder import Policyholder
+from root.insurance.resources import GadgetCover, Applications, Claims, PolicyHolders, Policies
 
 logging.basicConfig(level=logging.DEBUG)
 

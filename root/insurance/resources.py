@@ -1,5 +1,5 @@
-from root.exceptions import RootInsufficientDataException
-from root.policyholder import Policyholder, Beneficiary
+from root.insurance.exceptions import RootInsufficientDataException
+from root.insurance.policyholder import Policyholder, Beneficiary
 
 
 class Resource(object):
